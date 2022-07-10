@@ -1,14 +1,19 @@
 from typing import List
 
 from creator.option import Option
+from creator.story import Story
 
 
 class Node:
+    __story: Story
+    __parent: 'Node'
     __text: str
     __options: list[Option]
     __branches: list['Node']
 
-    def __init__(self, text: str, options: List[Option]) -> None:
+    def __init__(self, story: Story, parent: 'Node', text: str, options: List[Option]) -> None:
+        self.__parent = parent
+        self.__story = story
         self.__text = text
         self.__options = options
         self.__branches = list()
