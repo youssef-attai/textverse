@@ -6,13 +6,11 @@ from creator.story import Story
 
 class Node:
     __story: Story
-    __parent: 'Node'
     __text: str
     __options: list[Option]
     __branches: list['Node']
 
-    def __init__(self, story: Story, parent: 'Node', text: str, options: List[Option]) -> None:
-        self.__parent = parent
+    def __init__(self, story: Story, text: str, options: List[Option]) -> None:
         self.__story = story
         self.__text = text
         self.__options = options
